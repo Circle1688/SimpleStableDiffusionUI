@@ -6,10 +6,41 @@ from io import BytesIO
 import asyncio
 from aiohttp import ClientSession
 from server import *
-from datetime import datetime
 import time
+import logging
+from logging import handlers
 
 max_limit = 1536
+
+class Logger(object):
+    level_relations = {
+        'debug':logging.DEBUG,
+        'info':logging.INFO,
+        'warning':logging.WARNING,
+        'error':logging.ERROR,
+        'crit':logging.CRITICAL
+    }#日志级别关系映射
+
+    def __init__(self,filename,level='info',when='D',backCount=3,fmt='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s'):
+        self.logger = logging.getLogger(filename)
+        format_str = logging.Formatter(fmt)#设置日志格式
+        self.logger.setLevel(self.level_relations.get(level))#设置日志级别
+        sh = logging.StreamHandler()#往屏幕上输出
+        sh.setFormatter(format_str) #设置屏幕上显示的格式
+        th = handlers.TimedRotatingFileHandler(filename=filename,when=when,backupCount=backCount,encoding='utf-8')#往文件里写入#指定间隔时间自动生成文件的处理器
+        #实例化TimedRotatingFileHandler
+        #interval是时间间隔，backupCount是备份文件的个数，如果超过这个个数，就会自动删除，when是间隔的时间单位，单位有以下几种：
+        # S 秒
+        # M 分
+        # H 小时、
+        # D 天、
+        # W 每星期（interval==0时代表星期一）
+        # midnight 每天凌晨
+        th.setFormatter(format_str)#设置文件里写入的格式
+        self.logger.addHandler(sh) #把对象加到logger里
+        self.logger.addHandler(th)
+
+log = Logger('all.log',level='debug')
 
 def load_config():
     with open("config.json", "r", encoding="utf8") as f:
@@ -299,7 +330,8 @@ async def gen_images(
 
     gr.Info("正在生成中，较大分辨率的图片生成更加耗费时间")
     start_time = time.time()
-    time_format = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    res = None
     try:
         if mode["type"] == "txt2img":
             url = url_text + "/sdapi/v1/txt2img"
@@ -314,13 +346,18 @@ async def gen_images(
             infotexts = info["infotexts"]
 
             spend_time = time.time() - start_time
-            print(f"\n{time_format}\n花费时间:{spend_time}\n生成信息：{infotexts}\n")
+            log.logger.debug(f"\nurl:{url_text}\n花费时间:{spend_time}\n生成信息：{infotexts}\n")
 
             pop_back_server(url_text)
             return gr.Gallery(res_images, visible=True), gr.Image(visible=False), gr.Image(visible=False), gr.Slider(visible=False),  gr.Button(interactive=True), False, gr.Button(interactive=True), gr.Button(visible=True)
     except Exception as e:
-        print(f"\n{time_format}\n错误：{e}\n")
-        gr.Warning(f"错误: {e}")
+        if res is not None:
+            Logger('error.log', level='error').logger.error(f"\n错误：{e}\nurl:{url_text}\n服务器返回：{res}\n")
+            gr.Warning(f"错误: {e} 服务器返回：{res}\n")
+        else:
+            Logger('error.log', level='error').logger.error(f"\n错误：{e}\nurl:{url_text}\n")
+            gr.Warning(f"错误: {e}\n")
+
         pop_back_server(url_text)
         await asyncio.sleep(5)
         return gr.Gallery(), gr.Image(), gr.Image(), gr.Slider(visible=False), gr.Button(interactive=True), False, gr.Button(interactive=True), gr.Button(visible=True)
