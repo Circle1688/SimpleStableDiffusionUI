@@ -12,7 +12,7 @@ def load_server():
 
 def init_load_server():
     global can_use_servers
-    can_use_servers = load_server();
+    can_use_servers = load_server()
 
 async def request_for_free(timeout_count = 1):
     global can_use_servers
@@ -20,6 +20,7 @@ async def request_for_free(timeout_count = 1):
     i = 0
     while i < timeout_count:
         for server in servers:
+            # print(server)
             # 如果服务器没被使用
             if server in can_use_servers:
                 ip = "http://" + server["ip"]
@@ -38,6 +39,7 @@ async def request_for_free(timeout_count = 1):
 
                             can_use_servers.append(server)
                 except Exception as e:
+                    print("request for free error: ", e)
                     gr.Warning(f"报错：{e}")
                     can_use_servers.append(server)
         i += 1
