@@ -412,11 +412,11 @@ def webui(global_port):
                     upload_mask_image = gr.Image(label="上传蒙版图片", height=1000, visible=False)
 
                 results_gallery = gr.Gallery(label="生成结果", height=1000, visible=False, preview=True, show_download_button=False, columns=4, container=False)
-                progress_bar = gr.Slider(label="正在生成中", value=0, visible=False)
+                progress_bar = gr.Slider(label="正在生成中", value=0, visible=False, container=False)
                 pro_btn = gr.Button(value="尝试专业版", variant="primary", scale=0, size="lg")
 
             with gr.Column(scale=1):
-                gr.Markdown("![](https://raw.githubusercontent.com/Circle1688/SimpleStableDiffusionUI/main/image/logo-adjust.png)")
+                gr.Markdown("![](https://raw.githubusercontent.com/Circle1688/SimpleStableDiffusionUI/main/image/logo.png)")
                 with gr.Row():
                     image_width = gr.Slider(value=1024, minimum=512, maximum=max_limit, label="宽度", step=1)
                     image_height = gr.Slider(value=1024, minimum=512, maximum=max_limit, label="高度", step=1)
