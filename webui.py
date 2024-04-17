@@ -416,7 +416,7 @@ def webui(global_port):
                 pro_btn = gr.Button(value="尝试专业版", variant="primary", scale=0, size="lg")
 
             with gr.Column(scale=1):
-                gr.Markdown("![](https://raw.githubusercontent.com/Circle1688/SimpleStableDiffusionUI/main/image/logo.png)")
+                gr.Markdown("![](https://raw.githubusercontent.com/Circle1688/SimpleStableDiffusionUI/main/image/logo-adjust.png)")
                 with gr.Row():
                     image_width = gr.Slider(value=1024, minimum=512, maximum=max_limit, label="宽度", step=1)
                     image_height = gr.Slider(value=1024, minimum=512, maximum=max_limit, label="高度", step=1)
