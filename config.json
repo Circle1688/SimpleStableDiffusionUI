@@ -1,0 +1,262 @@
+{
+  "type": [
+    {
+      "name": "内饰",
+      "mode": [
+        {
+          "name": "线稿转草渲",
+          "type": "txt2img",
+          "mask": false,
+          "refiner": true,
+          "need_image": true,
+          "control_net": [
+            {
+              "module": "canny",
+              "model": "sai_xl_canny_256lora [566f20af]",
+              "weight": 1.0
+            }
+          ],
+          "style": [
+            {
+              "name": "复古新人类",
+              "prompt": "best quality, ultra high res, sketches, no humans, neishi, newnew, <lora:INT_D02(SDXL 1024x1024):0.8>, retro futurism,car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "(worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),6 wheels,logo,"
+            },
+            {
+              "name": "温馨未来",
+              "prompt": "best quality, ultra high res, sketches, no humans, neishi, wenxin, weilai, <lora:INT_F30c(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "(worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),6 wheels,logo,"
+            },
+            {
+              "name": "豪华",
+              "prompt": "best quality, ultra high res, sketches, no humans, neishi, H80, <lora:INT_H80 2 views3(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "(worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),6 wheels,logo,"
+            }
+          ],
+          "reference_prompt":"best quality, ultra high res, sketches, no humans, neishi,car interior, cockpit, screen, solo, steering wheel, seat",
+          "reference_neg_prompt":"(worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),6 wheels,logo,"
+        },
+        {
+          "name": "线稿转实车",
+          "type": "txt2img",
+          "mask": false,
+          "refiner": true,
+          "need_image": true,
+          "control_net": [
+            {
+              "module": "canny",
+              "model": "sai_xl_canny_256lora [566f20af]",
+              "weight": 1.0
+            }
+          ],
+          "style": [
+            {
+              "name": "复古新人类",
+              "prompt": "masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, newnew, <lora:INT_D02(SDXL 1024x1024):0.8>, retro futurism,car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+            },
+            {
+              "name": "温馨未来",
+              "prompt": "masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, wenxin, weilai, <lora:INT_F30c(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+            },
+            {
+              "name": "豪华",
+              "prompt": "masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, H80, <lora:INT_H80 2 views3(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+            }
+          ],
+          "reference_prompt":"masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, car interior, cockpit, screen, solo, steering wheel, seat",
+          "reference_neg_prompt":"lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+        },
+        {
+          "name": "草渲转实车",
+          "type": "txt2img",
+          "mask": false,
+          "refiner": true,
+          "need_image": true,
+          "control_net": [
+            {
+              "module": "canny",
+              "model": "sai_xl_canny_256lora [566f20af]",
+              "weight": 1.0
+            },
+            {
+              "module": "depth_midas",
+              "model": "sai_xl_depth_256lora [73ad23d1]",
+              "weight": 1.0
+            }
+          ],
+          "style": [
+            {
+              "name": "复古新人类",
+              "prompt": "masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, newnew, <lora:INT_D02(SDXL 1024x1024):0.8>, retro futurism,car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+            },
+            {
+              "name": "温馨未来",
+              "prompt": "masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, wenxin, weilai, <lora:INT_F30c(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+            },
+            {
+              "name": "豪华",
+              "prompt": "masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, H80, <lora:INT_H80 2 views3(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+            }
+          ],
+          "reference_prompt":"masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi,car interior, cockpit, screen, solo, steering wheel, seat",
+          "reference_neg_prompt":"lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+        },
+        {
+          "name": "无中生草渲",
+          "type": "txt2img",
+          "mask": false,
+          "refiner": true,
+          "need_image": false,
+          "control_net": [],
+          "style": [
+            {
+              "name": "复古新人类",
+              "prompt": "best quality, ultra high res, sketches, no humans, neishi, newnew, <lora:INT_D02(SDXL 1024x1024):0.8>, retro futurism,car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "(worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),6 wheels,logo,"
+            },
+            {
+              "name": "温馨未来",
+              "prompt": "best quality, ultra high res, sketches, no humans, neishi, wenxin, weilai, <lora:INT_F30c(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "(worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),6 wheels,logo,"
+            },
+            {
+              "name": "豪华",
+              "prompt": "best quality, ultra high res, sketches, no humans, neishi, H80, <lora:INT_H80 2 views3(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "(worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),6 wheels,logo,"
+            }
+          ]
+        },
+        {
+          "name": "无中生实车",
+          "type": "txt2img",
+          "mask": false,
+          "refiner": true,
+          "need_image": false,
+          "control_net": [],
+          "style": [
+            {
+              "name": "复古新人类",
+              "prompt": "masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, newnew, <lora:INT_D02(SDXL 1024x1024):0.8>, retro futurism,car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+            },
+            {
+              "name": "温馨未来",
+              "prompt": "masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, wenxin, weilai, <lora:INT_F30c(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+            },
+            {
+              "name": "豪华",
+              "prompt": "masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi, H80, <lora:INT_H80 2 views3(SDXL 1024x1024):0.8>, car interior, cockpit, screen, solo, steering wheel, seat",
+              "neg_prompt": "lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+            }
+          ],
+          "reference_prompt":"masterpiece,best quality,super detailed,realistic,photorealistic, 8k, sharp focus, no humans, neishi,car interior, cockpit, screen, solo, steering wheel, seat",
+          "reference_neg_prompt":"lowres, bad anatomy, text, cropped, watermark, paintings, sketches,(normal quality), (worst quality), (low quality),cropped,error,mutation, (poorly drawn) , bad proportions, bad shadow, censored, signature,watermark, username, blurry, censored, mosaic, mutilated, disfigured, malformed, ugly, shit, yellow leather,"
+        }
+      ],
+      "style": [
+        {
+          "name": "复古新人类",
+          "checkpoint": "neishi3-000006.ckpt [e2027fe2a8]",
+          "vae": "sdxl_vae.safetensors",
+          "lora": []
+        },
+        {
+          "name": "温馨未来",
+          "checkpoint": "neishi3-000006.ckpt [e2027fe2a8]",
+          "vae": "sdxl_vae.safetensors",
+          "lora": []
+        },
+        {
+          "name": "豪华",
+          "checkpoint": "neishi3-000006.ckpt [e2027fe2a8]",
+          "vae": "sdxl_vae.safetensors",
+          "lora": []
+        }
+      ],
+      "reference": {
+        "module": "ip-adapter_clip_g",
+        "model": "ip-adapter_xl [4209e9f7]"
+      }
+    },
+    {
+      "name": "外饰",
+      "mode": [
+        {
+          "name": "线稿转草渲",
+          "type": "txt2img",
+          "mask": false,
+          "refiner": false,
+          "need_image": true,
+          "control_net": [
+            {
+              "module": "canny",
+              "model": "control_sd15_canny [fef5e48e]",
+              "weight": 0.98
+            }
+          ],
+          "style": [
+            {
+              "name": "None",
+              "prompt": "best quality, ultra high res, paintings, sketches, grey background,car,concept_car,car,grey car,black tires,",
+              "neg_prompt": "(worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),6 wheels,logo,"
+            }
+          ],
+          "reference_prompt":"best quality, ultra high res, paintings, sketches, grey background,car,concept_car,car,grey car,black tires,",
+          "reference_neg_prompt":"(worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),6 wheels,logo,"
+        },
+        {
+          "name": "线稿/草渲 转实车",
+          "type": "txt2img",
+          "mask": false,
+          "refiner": false,
+          "need_image": true,
+          "control_net": [
+            {
+              "module": "canny",
+              "model": "control_sd15_canny [fef5e48e]",
+              "weight": 0.98
+            },
+            {
+              "module": "depth_midas",
+              "model": "control_sd15_depth [fef5e48e]",
+              "weight": 0.5
+            }
+          ],
+          "style": [
+            {
+              "name": "None",
+              "prompt": "best quality, ultra high res, (photorealistic:1.4),  unreal engine,car,concept_car,grey car,",
+              "neg_prompt": "paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),logo,"
+            }
+          ],
+          "reference_prompt":"best quality, ultra high res, (photorealistic:1.4),  unreal engine,car,concept_car,grey car,",
+          "reference_neg_prompt":"paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),logo,"
+        }
+      ],
+      "style": [
+        {
+          "name": "midjourney风",
+          "checkpoint": "chilloutmix_NiPrunedFp32.safetensors [95afa0d9ea]",
+          "vae": "",
+          "lora": [
+            {
+              "model": "EXT_mixcarfront v_1.0(91c343fecc92)",
+              "weight": 0.45
+            }
+          ]
+        }
+      ],
+      "reference": {
+        "module": "ip-adapter_clip_sd15",
+        "model": "ip-adapter_sd15_plus [32cd8f7f]"
+      }
+    }
+  ]
+}

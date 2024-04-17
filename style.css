@@ -1,0 +1,48 @@
+div.gradio-container{
+    max-width: unset !important;
+}
+.gradio-html div.wrap{
+    height: 100%;
+}
+div.gradio-html.min{
+    min-height: 0;
+}
+
+.block.gradio-gallery{
+    background: var(--input-background-fill);
+}
+@media screen and (min-width: 2500px) {
+    #txt2img_gallery, #img2img_gallery, #extra_gallery {
+        min-height: 680px;
+    }
+}
+
+.gradio-gallery .thumbnails img {
+    object-fit: scale-down !important;
+}
+/* gradio 3.39 puts a lot of overflow: hidden all over the place for an unknown reason. */
+div.gradio-container, .block.gradio-textbox, div.gradio-group, div.gradio-dropdown{
+    overflow: visible !important;
+}
+
+#img2img_results, #txt2img_results, #extras_results {
+    position: sticky;
+    top: 0.5em;
+}
+
+div.gradio-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-image: url("https://i.ibb.co/t4WqZ2H/back.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*#upload-image {*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    width: 100%;*/
+/*    background-image: url("https://xps01.xiaopeng.com/www/public/img/p4.6f03ab9b.jpg");*/
+/*    background-size: cover;*/
+/*}*/
