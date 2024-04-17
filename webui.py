@@ -399,15 +399,14 @@ def upload_ref_image(ref_image):
 
 def webui(global_port):
     with (gr.Blocks(title="小鹏造型中心AI", analytics_enabled=False, css="style.css", theme='WeixuanYuan/Base_dark') as demo):
-        head = """# ![](https://xps01.xiaopeng.com/www/public/img/white-logo.570fd7b8.svg)   Design Center AI
-        ### 小鹏造型中心    v1.240415"""
-        gr.Markdown(head)
-        # gr.Markdown("![](file/logo.png)")
-        # gr.Markdown("![](https://xps01.xiaopeng.com/www/public/img/white-logo.570fd7b8.svg)")
-        new_btn = gr.Button(value="新建", variant="primary", scale=0, size="lg")
-
         with gr.Row():
             with gr.Column(scale=4):
+                head = """# ![](https://xps01.xiaopeng.com/www/public/img/white-logo.570fd7b8.svg)   Design Center AI
+                        ### 小鹏造型中心    v1.240415"""
+                gr.Markdown(head)
+                # gr.Markdown("![](file/logo.png)")
+                # gr.Markdown("![](https://xps01.xiaopeng.com/www/public/img/white-logo.570fd7b8.svg)")
+                new_btn = gr.Button(value="新建", variant="primary", scale=0, size="lg")
                 with gr.Row():
                     upload_image = gr.Image(label="上传图片", height=1000, elem_id="upload-image", container=False)
                     upload_mask_image = gr.Image(label="上传蒙版图片", height=1000, visible=False)
@@ -417,6 +416,7 @@ def webui(global_port):
                 pro_btn = gr.Button(value="尝试专业版", variant="primary", scale=0, size="lg")
 
             with gr.Column(scale=1):
+                gr.Markdown("![](https://raw.githubusercontent.com/Circle1688/SimpleStableDiffusionUI/main/image/logo.png)")
                 with gr.Row():
                     image_width = gr.Slider(value=1024, minimum=512, maximum=max_limit, label="宽度", step=1)
                     image_height = gr.Slider(value=1024, minimum=512, maximum=max_limit, label="高度", step=1)
