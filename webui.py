@@ -445,7 +445,7 @@ def webui(global_port):
                 # gr.Markdown("![](https://xps01.xiaopeng.com/www/public/img/white-logo.570fd7b8.svg)")
                 new_btn = gr.Button(value="新建", variant="primary", scale=0, size="lg")
                 with gr.Row():
-                    upload_image = gr.Image(label="上传图片", height=1000, elem_id="upload-image", container=False)
+                    upload_image = gr.Image(label="上传图片", height=1000, elem_id="upload-image", container=False, sources=["upload"])
                     upload_mask_image = gr.Image(label="上传蒙版图片", height=1000, visible=False)
 
                 results_gallery = gr.Gallery(label="生成结果", height=1000, visible=False, preview=True, show_download_button=False, columns=4, container=False)
@@ -473,7 +473,7 @@ def webui(global_port):
 
 
                 with gr.Accordion(label="参考图", open=False):
-                    ref_image = gr.Image(label="上传参考图", height=250)
+                    ref_image = gr.Image(label="上传参考图", height=250, sources=["upload"])
                     draw_influence = gr.Slider(label="参考图影响", value=80, minimum=60, maximum=100, step=1)
 
                 num_of_images = gr.Radio(label="生成数量", value="1", choices=["1", "4"])
